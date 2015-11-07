@@ -65,6 +65,7 @@ public class Main {
 		print_rules(rules, n);
 		
 		generate(axiom, rules, n);
+		System.out.println("Fine");
 
 	}
 
@@ -92,16 +93,22 @@ public class Main {
 		for (i=0; i<n; i++) {
 			word2 = word;
 			if (word.contains(rules[i][0])) {
-				word2=word2.replace(rules[i][0], rules[i][1]);
-				if (is_all_terminal(word2)) {
-					System.out.println(word2 + "\n");
+				word2 = word2.replace(rules[i][0], rules[i][1]); //Here is the problem
+				word2 = remove_epsilon(word2);            //replace should be rewritten
+				if (is_all_terminal(word2)) {     //to subsitute not only all the
+					System.out.println(word2 + "\n");     //occurrences
 				}
 				rec = rec +1;
-				System.out.println(word2 + "\n");
 				generate(word2, rules, n);
 				rec = rec-1;
 			}
 		}
 		return;
+	}
+	
+	private static String remove_epsilon(String word)
+	{
+		word = word.replace("e", "");
+		return word;
 	}
 }
