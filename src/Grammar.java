@@ -23,6 +23,20 @@ public class Grammar {
 		}
 		handler.writeLine(toString());
 	}
+	
+	/**
+	 * @return the rules
+	 */
+	public List<Rule> getRules() {
+		return new ArrayList<>(rules);
+	}
+
+	/**
+	 * @return the axiom
+	 */
+	public String getAxiom() {
+		return axiom;
+	}
 
 	@Override
 	public String toString() {
@@ -30,7 +44,7 @@ public class Grammar {
 		s = "Grammar:\n\tAxiom: " + axiom +
 				"\n\tRules:";
 		for (Rule r: rules)
-			s = s + "\n\t" + r;
+			s = s + "\n\t\t" + r;
 		return s;
 	}
 	

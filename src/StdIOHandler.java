@@ -21,6 +21,7 @@ public class StdIOHandler implements IOHandler<String> {
 	@Override
 	public void writeLine(String t) {
 		writer.println(t);
+		writer.flush();
 	}
 
 	@Override

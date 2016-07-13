@@ -9,6 +9,15 @@ public class Rule {
 		this.right = right;
 	}
 	
+	public boolean isApplicable(String word) {
+		return word.contains(left);
+	}
+	
+	public String apply (String word) {
+		return word.replace(left, right);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return left + " -> " + right;
