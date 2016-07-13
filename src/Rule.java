@@ -1,4 +1,3 @@
-
 public class Rule {
 
 	private final String left;
@@ -16,7 +15,6 @@ public class Rule {
 	public String apply (String word) {
 		return word.replace(left, right);
 	}
-	
 	
 	@Override
 	public String toString() {

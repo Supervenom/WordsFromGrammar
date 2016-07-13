@@ -29,6 +29,4 @@ public class StdIOHandler implements IOHandler<String> {
 		return Integer.parseInt(reader.readLine());
 	}
 	
-	
-
 }
