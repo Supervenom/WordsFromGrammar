@@ -2,19 +2,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * 
- */
-
-/**
- * @author vanoni
- *
- */
 public class Main {
 
-	/**
-	 * @param args
-	 */
 	static int rec = 0;
 	
 	public static void main(String[] args) {
