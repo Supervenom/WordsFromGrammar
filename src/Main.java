@@ -6,56 +6,9 @@ public class Main {
 
 	static int rec = 0;
 	
-	public static void main(String[] args) {
-		int i;
-		int n;
-		String temp = new String();
-		String axiom = new String();
-		
-		BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in));
-		
-		System.out.println("Enter the axiom");
-		
-		try {
-			axiom = br.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println("Enter the number of rules");
-		
-		try {
-			temp = br.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		n = Integer.parseInt(temp);  
-		String[][] rules;
-		rules = new String[n][2];
-		for (i=0; i<n; i++) {
-			System.out.println("Enter left side of rule " + (i+1) + "\n");
-			try {
-				rules[i][0] = br.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("Enter right side of rule " + (i+1) + "\n");
-			try {
-				rules[i][1] = br.readLine();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		print_rules(rules, n);
-		
-		generate(axiom, rules, n);
-		System.out.println("Fine");
-
+	public static void main(String[] args) throws IOException {
+		Grammar grammar = new Grammar();
+		Generator generator = new Generator(grammar);
 	}
 
 	private static boolean is_all_terminal (String word)
@@ -66,13 +19,6 @@ public class Main {
 		return word.equals(low);
 	}
 	
-	private static void print_rules(String[][] rules, int n)
-	{
-		int i;
-		for (i=0; i<n; i++) {
-			System.out.println(rules[i][0] + "\t->\t" + rules[i][1] + "\n");
-		}
-	}
 	
 	private static void generate(String word, String[][] rules, int n)
 	{
@@ -95,9 +41,5 @@ public class Main {
 		return;
 	}
 	
-	private static String remove_epsilon(String word)
-	{
-		word = word.replace("e", "");
-		return word;
-	}
+	
 }

@@ -5,8 +5,8 @@ import java.io.PrintWriter;
 
 public class StdIOHandler implements IOHandler<String> {
 
-	private BufferedReader reader;
-	private PrintWriter writer;
+	private final BufferedReader reader;
+	private final PrintWriter writer;
 	
 	public StdIOHandler() {
 		reader = new BufferedReader(new InputStreamReader(System.in));

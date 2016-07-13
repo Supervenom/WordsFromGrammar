@@ -1,10 +1,11 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grammar {
 
-	private List<Rule> rules;
-	private String axiom;
+	private final List<Rule> rules;
+	private final String axiom;
 	
 	public Grammar() throws IOException {
 		StdIOHandler handler = new StdIOHandler();
@@ -12,6 +13,7 @@ public class Grammar {
 		axiom = handler.readLine();
 		handler.writeLine("Enter the number of rules");
 		int n = handler.readNumber();
+		rules = new ArrayList<>();
 		for (int i = 0; i < n; i++) {
 			handler.writeLine("Enter left side of rule " + (i+1) + "\n");
 			String left = handler.readLine();
@@ -19,6 +21,7 @@ public class Grammar {
 			String right = handler.readLine();
 			rules.add(new Rule(left, right));
 		}
+		handler.writeLine(toString());
 	}
 
 	@Override
